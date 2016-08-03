@@ -1,0 +1,36 @@
+{% extends 'myapp/main.html' %}
+{% load staticfiles %}
+
+{% block body %}
+    <div class="container">
+        <div class="row " style="padding-top:40px;">
+            <h3 class="text-center">Онлайн чат в реальном времени</h3>
+            <br/><br/>
+            <div class="col-md-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <strong>История чата</strong><strong class="navbar navbar-right">Вы вошли как: <a href="{% url 'logout' %}" class="sender">{{ user }}</a></strong>
+                    </div>
+                    <div class="panel-body fixed-panel">
+                        <ul class="media-list" style="height: 400px;">
+                            {% for mes in messages %}
+                                <li>{{ mes }}<span class="text-success"> - {{ mes.sender }}</span></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="panel-footer fixed-panel">
+                        <div class="input-group">
+                            <form id="chat_form" action="" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="message" class="form-control" placeholder="Сообщение..." id="messageText" autofocus/>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info" type="submit" id="sendMessage">Отправить</button>
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

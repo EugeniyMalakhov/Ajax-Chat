@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserStory</title>
+    <link href="{% static 'myapp/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'myapp/css/myapp.css' %}" rel="stylesheet">
+    <script src="{% static 'myapp/js/jQuery-2.2.1.js' %}" rel="script"></script>
+    <script src="{% static 'myapp/js/jquery.cookie.js' %}" rel="script"></script>
+    <script src="{% static 'myapp/js/chat.js' %}" rel="script"></script>
+</head>
+<body>
+    {% block body %}{% endblock %}
+</body>
+</html>
